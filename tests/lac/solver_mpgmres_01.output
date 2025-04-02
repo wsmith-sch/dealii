@@ -1,56 +1,34 @@
 
-DEAL:FGMRES::FGMRES:
+FGMRES:
 Applying preconditioner A
-DEAL:FGMRES::Applying preconditioner B
-DEAL:FGMRES::Applying preconditioner C
-DEAL:FGMRES::Applying preconditioner A
-DEAL:FGMRES::Applying preconditioner B
-DEAL:FGMRES::Applying preconditioner C
-DEAL:FGMRES::Applying preconditioner A
-DEAL:MPGMRES::
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+DEAL::Solver stopped within 4 - 10 iterations
+
 MPGMRES: (truncated)
 Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+Applying preconditioner B
+Applying preconditioner C
+DEAL::Solver stopped within 16 - 22 iterations
+
 MPGMRES: (full)
 Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
-DEAL:MPGMRES::Applying preconditioner A
-DEAL:MPGMRES::Applying preconditioner B
-DEAL:MPGMRES::Applying preconditioner C
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+Applying preconditioner B
+Applying preconditioner C
+Applying preconditioner A
+Applying preconditioner B
+Applying preconditioner C
+DEAL::Solver stopped within 21 - 27 iterations

@@ -35,18 +35,29 @@ public:
                    const Preconditioner &preconditioner)
     : name(name)
     , preconditioner(preconditioner)
+    , print_counter(0)
   {}
 
   void
   vmult(Vector<double> &dst, const Vector<double> &src) const
   {
-    deallog << "Applying preconditioner " << name << std::endl;
+    if (print_counter < 3)
+      deallog.get_file_stream()
+        << "Applying preconditioner " << name << std::endl;
     preconditioner.vmult(dst, src);
+    ++print_counter;
+  }
+
+  void
+  reset_counter()
+  {
+    print_counter = 0;
   }
 
 private:
   const std::string     name;
   const Preconditioner &preconditioner;
+  mutable unsigned int  print_counter;
 };
 
 
@@ -90,20 +101,41 @@ main()
 
   SolverControl control(M, 1e-8);
 
-  deallog << "FGMRES:\n";
+  deallog.get_file_stream() << "FGMRES:\n";
   SolverFGMRES<Vector<double>> solver_fgmres(control);
-  solver_fgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c);
+  check_solver_within_range(
+    solver_fgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c),
+    control.last_step(),
+    7 - 3,
+    7 + 3);
 
+  deallog.get_file_stream() << "\nMPGMRES: (truncated)\n";
   sol = 0.;
-  deallog << "\nMPGMRES: (truncated)\n";
+  wrapper_a.reset_counter();
+  wrapper_b.reset_counter();
+  wrapper_c.reset_counter();
+
   SolverMPGMRES<Vector<double>>::AdditionalData data;
   data.use_truncated_mpgmres_strategy = true;
   SolverMPGMRES<Vector<double>> solver_trmpgmres(control, data);
-  solver_trmpgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c);
+  check_solver_within_range(
+    solver_trmpgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c),
+    control.last_step(),
+    19 - 3,
+    19 + 3);
 
+
+  deallog.get_file_stream() << "\nMPGMRES: (full)\n";
   sol = 0.;
-  deallog << "\nMPGMRES: (full)\n";
+  wrapper_a.reset_counter();
+  wrapper_b.reset_counter();
+  wrapper_c.reset_counter();
   data.use_truncated_mpgmres_strategy = false;
   SolverMPGMRES<Vector<double>> solver_mpgmres(control, data);
-  solver_mpgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c);
+
+  check_solver_within_range(
+    solver_mpgmres.solve(matrix, sol, rhs, wrapper_a, wrapper_b, wrapper_c),
+    control.last_step(),
+    24 - 3,
+    24 + 3);
 }
